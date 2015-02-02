@@ -13,3 +13,15 @@ Then clone the repo and run the script
     git clone https://github.com/SamLau95/ubuntu-setup/
     cd ubuntu-setup
     ./setup.sh
+
+Features
+====
+
+- curl
+- nvm with nodejs v0.10.12
+- Caches ```git``` credentials
+- heroku toolbelt
+- ctags
+- rvm with latest ruby
+- tmuxinator and pry
+- phantomjs v1.9.8
