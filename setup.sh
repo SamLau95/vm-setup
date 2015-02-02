@@ -5,7 +5,7 @@ source $HOME/.nvm/nvm.sh
 nvm install v0.10.12
 nvm use v0.10.12
 
-sudo apt-get install -n libgnome-keyring-dev
+sudo apt-get install libgnome-keyring-dev -y
 cd /usr/share/doc/git/contrib/credential/gnome-keyring
 sudo make
 git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
@@ -18,10 +18,10 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
 
 sudo apt-get update
-sudo apt-get install -n build-essential chrpath libssl-dev libxft-dev
+sudo apt-get install build-essential chrpath libssl-dev libxft-dev -y
 
-sudo apt-get install -n libfreetype6 libfreetype6-dev
-sudo apt-get install -n libfontconfig1 libfontconfig1-dev
+sudo apt-get install libfreetype6 libfreetype6-dev -y
+sudo apt-get install libfontconfig1 libfontconfig1-dev -y
 
 export PHANTOM_JS="phantomjs-1.9.8-linux-x86_64"
 wget https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2
