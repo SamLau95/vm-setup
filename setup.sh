@@ -9,6 +9,8 @@ git config --global credential.helper store
 
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
+sudo apt-get install -y ctags
+
 cd $HOME
 
 sudo apt-get update
