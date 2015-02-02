@@ -5,10 +5,7 @@ source $HOME/.nvm/nvm.sh
 nvm install v0.10.12
 nvm use v0.10.12
 
-sudo apt-get install libgnome-keyring-dev -y
-cd /usr/share/doc/git/contrib/credential/gnome-keyring
-sudo make
-git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+git config --global credential.helper store
 
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
