@@ -4,6 +4,7 @@ curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | sh
 source $HOME/.nvm/nvm.sh
 nvm install v0.10.12
 nvm use v0.10.12
+echo -e '\nsource ~/.nvm/nvm.sh' >> ~/.bashrc
 
 git config --global credential.helper store
 
