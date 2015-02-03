@@ -1,6 +1,15 @@
 sudo apt-get install -y curl
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | sh
 
+sudo apt-get install ufw -y
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw allow ftp
+sudo ufw allow www
+sudo ufw allow 3000/tcp
+sudo ufw enable
+
 source $HOME/.nvm/nvm.sh
 nvm install v0.10.12
 nvm use v0.10.12
