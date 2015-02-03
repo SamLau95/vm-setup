@@ -40,3 +40,9 @@ cd $HOME
 sudo apt-get install postgresql postgresql-contrib libpq-div
 sudo -u postgres createuser --superuser root
 sudo -u postgres psql -U postgres -d postgres -c "alter user root with password '';"
+
+cd $HOME
+sudo apt-get install golang -y
+git clone http://github.com/zimbatm/direnv
+cd direnv
+make install
