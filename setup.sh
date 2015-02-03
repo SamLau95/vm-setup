@@ -46,3 +46,4 @@ sudo apt-get install golang -y
 git clone http://github.com/zimbatm/direnv
 cd direnv
 make install
+echo -e '\neval "$(direnv hook bash)"' >> ~/.bashrc
