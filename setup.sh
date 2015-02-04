@@ -1,5 +1,14 @@
 sudo apt-get install -y curl
-curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | sh
+
+sudo fallocate -l 2G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo echo -e '\n/swapfile   none    swap    sw    0   0' >> /etc/fstab
+sudo sysctl vm.swappiness=10
+sudo echo -e '\nvm.swappiness=10' >> /etc/sysctl.conf
+sudo sysctl vm.vfs_cache_pressure=50
+sudo echo -e '\nvm.vfs_cache_pressure = 50' >> /etc/sysctl.conf
 
 sudo apt-get install ufw -y
 sudo ufw default deny incoming
@@ -10,6 +19,7 @@ sudo ufw allow www
 sudo ufw allow 3000/tcp
 sudo ufw enable
 
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | sh
 source $HOME/.nvm/nvm.sh
 nvm install v0.10.12
 nvm use v0.10.12
