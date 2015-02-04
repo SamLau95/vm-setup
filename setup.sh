@@ -1,3 +1,5 @@
+git config --global push.default current
+
 sudo apt-get install -y curl
 
 sudo fallocate -l 2G /swapfile
