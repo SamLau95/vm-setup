@@ -18,6 +18,7 @@ Features
 ====
 
 - ```curl```
+- 2GB of configured swap space
 - ```ufw``` with www, ftp, ssh, and port 3000 enabled
 - ```nvm``` with ```nodejs``` v0.10.12
 - Caches ```git``` credentials
