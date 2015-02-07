@@ -26,6 +26,8 @@ source $HOME/.nvm/nvm.sh
 nvm install v0.10.12
 nvm use v0.10.12
 echo -e '\nsource ~/.nvm/nvm.sh' >> ~/.bashrc
+sudo npm install -g trash
+alias rm=trash
 
 git config --global credential.helper store
 
