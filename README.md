@@ -1,4 +1,4 @@
-Ubuntu Setup
+VM Setup
 =====
 
 Sets up a fresh Ubuntu machine with config that I like.
