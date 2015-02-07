@@ -47,6 +47,8 @@ alias rm=trash
 
 # heroku toolbelt
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+heroku login
+heroku keys:add
 
 # Installs rvm, latest ruby, and tmuxinator + pry gems
 cd $HOME
