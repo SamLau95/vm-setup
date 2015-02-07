@@ -87,3 +87,26 @@ git clone http://github.com/zimbatm/direnv
 cd direnv
 make install
 echo -e '\neval "$(direnv hook bash)"' >> ~/.bashrc
+
+# Installs dotfiles
+read -p "Do you want to install Sam's dotfiles? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    cd $HOME
+    git clone https://github.com/SamLau95/vm-dotfiles.git
+    ln -sb dotfiles/.profile .
+    ln -sb dotfiles/.bashrc .
+    ln -sb dotfiles/.bash_aliases .
+    ln -sb dotfiles/.pryrc .
+    ln -sb dotfiles/.tmux.conf .
+    source ~/.profile
+fi
+
+# Installs vim config
+read -p "Do you want to install spf13's vim config? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    curl http://j.mp/spf13-vim3 -L -o - | sh
+fi
