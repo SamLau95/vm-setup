@@ -24,6 +24,7 @@ sudo echo -e '\nvm.vfs_cache_pressure = 50' >> /etc/sysctl.conf
 
 # Sets up firewall
 sudo apt-get install ufw -y
+sudo ufw disable
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 # Firewall rules
@@ -56,6 +57,7 @@ source /usr/local/rvm/scripts/rvm
 rvm gemset use global
 gem install tmuxinator
 gem install pry
+gem install md2man
 rvm gemset use default
 
 # Installs phamtonjs v1.9.8
@@ -74,7 +76,7 @@ sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/bin/phantomjs
 
 # Installs and sets up postgres
 cd $HOME
-sudo apt-get install postgresql postgresql-contrib libpq-div
+sudo apt-get install postgresql postgresql-contrib libpq-dev -y
 sudo -u postgres createuser --superuser root
 sudo -u postgres psql -U postgres -d postgres -c "alter user root with password '';"
 
