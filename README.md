@@ -18,12 +18,13 @@ Features
 ====
 
 - ```curl```
+- ```ctags```
+- Case insensitive tab completion
 - 2GB of configured swap space
 - ```ufw``` with www, ftp, ssh, and port 3000 enabled
-- ```nvm``` with ```nodejs``` v0.10.12
+- ```nvm``` with latest ```nodejs```
 - Caches ```git``` credentials
 - ```heroku``` toolbelt
-- ```ctags```
 - ```rvm``` with latest ```ruby```
 - ```tmuxinator``` and ```pry```
 - ```phantomjs``` v1.9.8
