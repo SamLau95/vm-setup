@@ -1,5 +1,4 @@
 # Case-insensitive tab completion
-sudo echo -e '\nset completion-ignore-case on' >> /etc/inputrc
 bind "set completion-ignore-case on"
 
 # git config
@@ -110,6 +109,7 @@ then
     ln -sb vm-dotfiles/.bash_aliases .
     ln -sb vm-dotfiles/.pryrc .
     ln -sb vm-dotfiles/.tmux.conf .
+    ln -sb vm-dotfiles/.inputrc .
     source ~/.profile
 fi
 
