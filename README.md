@@ -30,3 +30,4 @@ Features
 - ```phantomjs``` v1.9.8
 - ```postgresql``` with user ```root``` and blank password
 - ```direnv```
+- Optional `vim` and dotfiles config
