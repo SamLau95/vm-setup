@@ -2,6 +2,11 @@
 sudo echo -e '\nset completion-ignore-case on' >> /etc/inputrc
 bind "set completion-ignore-case on"
 
+# git config
+read -p "Enter git email: " git_email
+git config --global user.email $git_email
+read -p "Enter git name: " git_name
+git config --global user.name $git_name
 # git will push current branch without asking
 git config --global push.default current
 # git will cache credentials
@@ -32,14 +37,17 @@ sudo ufw allow ssh
 sudo ufw allow ftp
 sudo ufw allow www
 sudo ufw allow 3000/tcp
+sudo ufw allow 25000/tcp
 sudo ufw enable
 
 # Install nvm with latest node
+export NVM_DIR=$HOME/.nvm
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | sh
 source $HOME/.nvm/nvm.sh
-nvm install stable
-nvm use stable
+nvm install 0.10
+nvm use 0.10
 echo -e '\nsource ~/.nvm/nvm.sh' >> ~/.bashrc
+echo -e 'nvm use 0.10' >> ~/.bashrc
 
 # Install trash CLI and replace rm
 sudo npm install -g trash
@@ -55,14 +63,14 @@ cd $HOME
 sudo apt-get update
 gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
-source /usr/local/rvm/scripts/rvm
+source $HOME/.rvm/scripts/rvm
 rvm gemset use global
 gem install tmuxinator
 gem install pry
 gem install md2man
 rvm gemset use default
 
-# Installs phamtonjs v1.9.8
+# Installs phantonjs v1.9.8
 sudo apt-get install build-essential chrpath libssl-dev libxft-dev -y
 sudo apt-get install libfreetype6 libfreetype6-dev -y
 sudo apt-get install libfontconfig1 libfontconfig1-dev -y
@@ -87,7 +95,7 @@ cd $HOME
 sudo apt-get install golang -y
 git clone http://github.com/zimbatm/direnv
 cd direnv
-make install
+sudo make install
 echo -e '\neval "$(direnv hook bash)"' >> ~/.bashrc
 
 # Installs dotfiles
@@ -97,11 +105,11 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
     cd $HOME
     git clone https://github.com/SamLau95/vm-dotfiles.git
-    ln -sb dotfiles/.profile .
-    ln -sb dotfiles/.bashrc .
-    ln -sb dotfiles/.bash_aliases .
-    ln -sb dotfiles/.pryrc .
-    ln -sb dotfiles/.tmux.conf .
+    ln -sb vm-dotfiles/.profile .
+    ln -sb vm-dotfiles/.bashrc .
+    ln -sb vm-dotfiles/.bash_aliases .
+    ln -sb vm-dotfiles/.pryrc .
+    ln -sb vm-dotfiles/.tmux.conf .
     source ~/.profile
 fi
 
