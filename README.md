@@ -10,9 +10,8 @@ Install ```git``` first:
 
 Then clone the repo and run the script
 
-    git clone https://github.com/SamLau95/ubuntu-setup/
-    cd ubuntu-setup
-    ./setup.sh
+    git clone https://github.com/SamLau95/vm-setup/
+    ./vm-setup/setup.sh
 
 Features
 ====
