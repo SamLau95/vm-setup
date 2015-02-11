@@ -66,6 +66,7 @@ source $HOME/.rvm/scripts/rvm
 rvm gemset use global
 gem install tmuxinator
 gem install pry
+gem install awesome_print
 gem install md2man
 rvm gemset use default
 
