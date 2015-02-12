@@ -1,6 +1,3 @@
-# Case-insensitive tab completion
-bind "set completion-ignore-case on"
-
 # git config
 read -p "Enter git email: " git_email
 git config --global user.email $git_email
