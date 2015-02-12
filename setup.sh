@@ -46,7 +46,7 @@ source $HOME/.nvm/nvm.sh
 nvm install 0.10
 nvm use 0.10
 echo -e '\nsource ~/.nvm/nvm.sh' >> ~/.bashrc
-echo -e 'nvm use 0.10' >> ~/.bashrc
+echo -e 'nvm use 0.10 &> /dev/null' >> ~/.bashrc
 
 # Install trash CLI and replace rm
 sudo npm install -g trash
