@@ -2,16 +2,10 @@ VM Setup
 =====
 
 Sets up a fresh Ubuntu machine with config that I like.
-Install ```git``` first:
 
-    sudo add-apt-repository ppa:git-core/ppa -y
-    sudo apt-get update
-    sudo apt-get install git -y
+Run the script:
 
-Then clone the repo and run the script
-
-    git clone https://github.com/SamLau95/vm-setup/
-    ./vm-setup/setup.sh
+    wget -q https://raw.githubusercontent.com/SamLau95/vm-setup/master/setup.sh -O -
 
 Features
 ====

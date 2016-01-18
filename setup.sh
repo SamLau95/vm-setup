@@ -1,3 +1,8 @@
+# Install git
+sudo add-apt-repository ppa:git-core/ppa -y
+sudo apt-get update -y
+sudo apt-get install git -y
+
 # git config
 read -p "Enter git email: " git_email
 git config --global user.email $git_email
@@ -40,12 +45,13 @@ sudo ufw enable
 
 # Install nvm with latest node
 export NVM_DIR=$HOME/.nvm
+export default_nvm_version=5.0
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | sh
 source $HOME/.nvm/nvm.sh
-nvm install 0.10
-nvm use 0.10
+nvm install $default_nvm_version
+nvm use $default_nvm_version
 echo -e '\nsource ~/.nvm/nvm.sh' >> ~/.bashrc
-echo -e 'nvm use 0.10 &> /dev/null' >> ~/.bashrc
+echo -e "nvm use $default_nvm_version &> /dev/null" >> ~/.bashrc
 
 # Install trash CLI and replace rm
 sudo npm install -g trash
