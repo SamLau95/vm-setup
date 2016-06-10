@@ -140,3 +140,10 @@ echo -e '\nhash zsh 2>/dev/null && exec zsh -l \n' >> ~/.profile
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 echo "source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+
+# Print finish message
+tput setaf 2
+echo
+echo "Done! Log out and back in to start using zsh :)"
+tput sgr0
+
