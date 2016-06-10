@@ -79,7 +79,7 @@ rvm gemset use default
 # Installs phantomjs v1.9.8
 read -r -p "Install phantomjs? [y/N] " response
 response=${response,,}    # tolower
-if [[ $response =~ ^(yes|y)$ ]]
+if [[ $response =~ ^(yes|y)$ ]] ; then
     sudo apt-get install build-essential chrpath libssl-dev libxft-dev -y
     sudo apt-get install libfreetype6 libfreetype6-dev -y
     sudo apt-get install libfontconfig1 libfontconfig1-dev -y
@@ -96,9 +96,9 @@ if [[ $response =~ ^(yes|y)$ ]]
 fi
 
 # Installs and sets up postgres
-read -r -p "Install phantomjs? [y/N] " response
+read -r -p "Install postgres? [y/N] " response
 response=${response,,}    # tolower
-if [[ $response =~ ^(yes|y)$ ]]
+if [[ $response =~ ^(yes|y)$ ]] ; then
     sudo apt-get install postgresql postgresql-contrib libpq-dev -y
     sudo -u postgres createuser --superuser root
     sudo -u postgres psql -U postgres -d postgres -c "alter user root with password '';"
@@ -106,20 +106,24 @@ fi
 
 # Installs direnv
 cd $HOME
-sudo apt-get install golang -y
-git clone http://github.com/zimbatm/direnv
-cd direnv
-sudo make install
+DIRENV_URL="https://github.com/direnv/direnv/releases/download/v2.8.1/direnv.linux-amd64"
+mkdir ~/bin ; cd bin
+wget -O direnv $DIRENV_URL
+chmod +x direnv
 echo -e '\neval "$(direnv hook bash)"\n' >> ~/.bashrc
 
-# Installs dotfiles
+# Installs pip
 cd $HOME
-pip install mackup
+sudo apt-get -y install python-pip
 
-ZIP_LINK=https://www.dropbox.com/sh/o2jxysfs3rrtslq/AABodkj1wWjgUpmXF8vlBxn_a?dl=1
+# Install dotfiles
+sudo pip install mackup
+sudo apt-get install -y unzip
+
+ZIP_LINK="https://www.dropbox.com/sh/o2jxysfs3rrtslq/AABodkj1wWjgUpmXF8vlBxn_a?dl=1"
 wget -O mackup.zip $ZIP_LINK
-mkdir ~/mackup/Mackup
-unzip mackup.zip -d ~/mackup/Mackup
+mkdir -p ~/mackup/Mackup
+unzip mackup.zip -d ~/mackup/Mackup && rm mackup.zip
 cat > ~/.mackup.cfg <<EOF
 [storage]
 engine = file_system
@@ -130,5 +134,9 @@ EOF
 mackup restore
 
 # Install zsh
+cd $HOME
 sudo apt-get install -y zsh
 echo -e '\nhash zsh 2>/dev/null && exec zsh -l \n' >> ~/.profile
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+echo "source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
