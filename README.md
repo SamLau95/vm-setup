@@ -5,4 +5,4 @@ Sets up a fresh Ubuntu machine with config that I like.
 
 Run the script:
 
-    wget -q https://raw.githubusercontent.com/SamLau95/vm-setup/master/setup.sh -O -
+    bash <(wget -qO- https://raw.githubusercontent.com/SamLau95/vm-setup/master/setup.sh)
