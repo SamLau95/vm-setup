@@ -3,6 +3,9 @@ sudo add-apt-repository ppa:git-core/ppa -y
 sudo apt-get update -y
 sudo apt-get install git -y
 
+# Install mosh
+sudo apt-get install mosh
+
 # SSH keys
 [ ! -f ~/.ssh/id_rsa ] && ssh-keygen
 
