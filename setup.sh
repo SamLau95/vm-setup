@@ -47,6 +47,7 @@ sudo ufw allow ftp
 sudo ufw allow www
 sudo ufw allow 3000/tcp
 sudo ufw allow 25000/tcp
+sudo ufw allow 60000:61000/udp
 sudo ufw enable
 
 # Install nvm with latest node
