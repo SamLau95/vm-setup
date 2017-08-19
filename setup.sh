@@ -37,18 +37,18 @@ sudo echo -e 'vm.vfs_cache_pressure = 50' >> /etc/sysctl.conf
 SCRIPT
 
 # Sets up firewall
-sudo apt-get install ufw -y
-sudo ufw disable
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
+# sudo apt-get install ufw -y
+# sudo ufw disable
+# sudo ufw default deny incoming
+# sudo ufw default allow outgoing
 # Firewall rules
-sudo ufw allow ssh
-sudo ufw allow ftp
-sudo ufw allow www
-sudo ufw allow 3000/tcp
-sudo ufw allow 25000/tcp
-sudo ufw allow 60000:61000/udp
-sudo ufw enable
+# sudo ufw allow ssh
+# sudo ufw allow ftp
+# sudo ufw allow www
+# sudo ufw allow 3000/tcp
+# sudo ufw allow 25000/tcp
+# sudo ufw allow 60000:61000/udp
+# sudo ufw enable
 
 # Install nvm with latest node
 export NVM_DIR=$HOME/.nvm
