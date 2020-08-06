@@ -24,17 +24,17 @@ sudo apt-get install -y curl
 sudo apt-get install -y ctags
 
 # Makes and installs 2GB swapfile
-sudo fallocate -l 2G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-sudo sysctl vm.swappiness=10
-sudo sysctl vm.vfs_cache_pressure=50
-sudo sh <<SCRIPT
-sudo echo -e '\n/swapfile   none    swap    sw    0   0\n' >> /etc/fstab
-sudo echo -e 'vm.swappiness=10' >> /etc/sysctl.conf
-sudo echo -e 'vm.vfs_cache_pressure = 50' >> /etc/sysctl.conf
-SCRIPT
+# sudo fallocate -l 2G /swapfile
+# sudo chmod 600 /swapfile
+# sudo mkswap /swapfile
+# sudo swapon /swapfile
+# sudo sysctl vm.swappiness=10
+# sudo sysctl vm.vfs_cache_pressure=50
+# sudo sh <<SCRIPT
+# sudo echo -e '\n/swapfile   none    swap    sw    0   0\n' >> /etc/fstab
+# sudo echo -e 'vm.swappiness=10' >> /etc/sysctl.conf
+# sudo echo -e 'vm.vfs_cache_pressure = 50' >> /etc/sysctl.conf
+# SCRIPT
 
 # Sets up firewall
 # sudo apt-get install ufw -y
@@ -63,50 +63,50 @@ echo -e 'nvm use stable\n' >> ~/.bashrc
 sudo npm install -g trash
 
 # heroku toolbelt
-wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-heroku login
-heroku keys:add
+# wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+# heroku login
+# heroku keys:add
 
 # Installs rvm, latest ruby, and tmuxinator + pry gems
-cd $HOME
-sudo apt-get update
-gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
-\curl -sSL https://get.rvm.io | bash -s stable --ruby
-source $HOME/.rvm/scripts/rvm
-rvm gemset use global
-gem install tmuxinator
-gem install pry
-gem install awesome_print
-gem install md2man
-rvm gemset use default
+# cd $HOME
+# sudo apt-get update
+# gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+# \curl -sSL https://get.rvm.io | bash -s stable --ruby
+# source $HOME/.rvm/scripts/rvm
+# rvm gemset use global
+# gem install tmuxinator
+# gem install pry
+# gem install awesome_print
+# gem install md2man
+# rvm gemset use default
 
 # Installs phantomjs v1.9.8
-read -r -p "Install phantomjs? [y/N] " response
-response=${response,,}    # tolower
-if [[ $response =~ ^(yes|y)$ ]] ; then
-    sudo apt-get install build-essential chrpath libssl-dev libxft-dev -y
-    sudo apt-get install libfreetype6 libfreetype6-dev -y
-    sudo apt-get install libfontconfig1 libfontconfig1-dev -y
-    cd $HOME
-    export PHANTOM_JS="phantomjs-1.9.8-linux-x86_64"
-    wget https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2
-    sudo mv $PHANTOM_JS.tar.bz2 /usr/local/share/
-    cd /usr/local/share/
-    sudo tar xvjf $PHANTOM_JS.tar.bz2
-    sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/share/phantomjs
-    sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin/phantomjs
-    sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/bin/phantomjs
-    cd $HOME
-fi
+# read -r -p "Install phantomjs? [y/N] " response
+# response=${response,,}    # tolower
+# if [[ $response =~ ^(yes|y)$ ]] ; then
+#     sudo apt-get install build-essential chrpath libssl-dev libxft-dev -y
+#     sudo apt-get install libfreetype6 libfreetype6-dev -y
+#     sudo apt-get install libfontconfig1 libfontconfig1-dev -y
+#     cd $HOME
+#     export PHANTOM_JS="phantomjs-1.9.8-linux-x86_64"
+#     wget https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2
+#     sudo mv $PHANTOM_JS.tar.bz2 /usr/local/share/
+#     cd /usr/local/share/
+#     sudo tar xvjf $PHANTOM_JS.tar.bz2
+#     sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/share/phantomjs
+#     sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin/phantomjs
+#     sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/bin/phantomjs
+#     cd $HOME
+# fi
 
 # Installs and sets up postgres
-read -r -p "Install postgres? [y/N] " response
-response=${response,,}    # tolower
-if [[ $response =~ ^(yes|y)$ ]] ; then
-    sudo apt-get install postgresql postgresql-contrib libpq-dev -y
-    sudo -u postgres createuser --superuser root
-    sudo -u postgres psql -U postgres -d postgres -c "alter user root with password '';"
-fi
+# read -r -p "Install postgres? [y/N] " response
+# response=${response,,}    # tolower
+# if [[ $response =~ ^(yes|y)$ ]] ; then
+#     sudo apt-get install postgresql postgresql-contrib libpq-dev -y
+#     sudo -u postgres createuser --superuser root
+#     sudo -u postgres psql -U postgres -d postgres -c "alter user root with password '';"
+# fi
 
 # Installs direnv
 cd $HOME
